@@ -1,0 +1,580 @@
+{
+	"info": {
+		"_postman_id": "c6c13c8a-4b9f-4c16-a5f2-3effbbda68f3",
+		"name": "challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26835203"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "ADMIN",
+					"item": [
+						{
+							"name": "createAdmin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"george@gmail.com\",\n    \"password\": \"123456\",\n    \"role\": \"ADMIN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/user/auth/signup",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"auth",
+										"signup"
+									]
+								},
+								"description": "Request to create an admin user; just replace it with the desired data."
+							},
+							"response": []
+						},
+						{
+							"name": "loginAdmin1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/user/auth/login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"auth",
+										"login"
+									]
+								},
+								"description": "Replace with a user’s data to obtain an authentication token"
+							},
+							"response": []
+						}
+					],
+					"description": "Contains 2 requests: one to create an admin user—just replace the data in the JSON to make it work. The second request is for obtaining a token from the server; you need to provide a valid user."
+				},
+				{
+					"name": "USER",
+					"item": [
+						{
+							"name": "createUser1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"mark@gmail.com\",\n    \"password\": \"123456\",\n    \"role\": \"USER\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/user/auth/signup",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "loginUser",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"user@example.com\",\n    \"password\": \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/user/auth/login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "It contains 2 requests: one to create a regular user—just replace the data in the JSON to make it work. The second request is for obtaining a token from the server; you need to provide a valid user"
+				}
+			],
+			"description": "This folder contains two subfolders: one for admin users and one for regular users. Two users have already been created; use the login request to obtain their tokens."
+		},
+		{
+			"name": "movie",
+			"item": [
+				{
+					"name": "admin",
+					"item": [
+						{
+							"name": "createMovie1",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImlhdCI6MTcyNTQ5NzEwNywiZXhwIjoxNzI1NDk4MzA3fQ.mavApn9udEpTlYUh01012iaaj8DveS7OINPDRJ0Cksc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"It\",\n    \"releaseYear\": 2001,\n    \"synopsis\": \"Some synopsis\",\n    \"categories\": [\n        \"Horror\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/movie/admin/save",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"movie",
+										"admin",
+										"save"
+									]
+								},
+								"description": "**Request Body:**\n\n• **name**: The name of the movie (must be unique).\n\n• **releaseYear**: The release year of the movie.\n\n• **synopsis**: The synopsis of the movie.\n\n• **categories**: A list of categories for the movie.\n\n• **createdBy**: The user or admin who created the movie.\n\n**Authentication**: Requires an admin token to be provided in the header."
+							},
+							"response": []
+						},
+						{
+							"name": "updateMovie1",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImlhdCI6MTcyNTUxMTIzNywiZXhwIjoxNzI1NTExODM3fQ.kwTgco4bw-sfk6Tgnc4DYUOW68N7d5xloJeMJEaK0U4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"It 2\",\n    \"releaseYear\": 2012,\n    \"synopsis\": \"Some synopsis\",\n    \"categories\": [\n        \"Horror\",\n        \"Thriller\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/movie/admin/update?movieName=It",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"movie",
+										"admin",
+										"update"
+									],
+									"query": [
+										{
+											"key": "movieName",
+											"value": "It"
+										}
+									]
+								},
+								"description": "This endpoint allows an admin to update the details of a specific movie. The request must include a token for admin authentication in the header.\n\n  \n\n**Request Parameters:**\n\n• **movieName**: The name of the movie to be updated (e.g., “It”).\n\n**Request Body:**\n\n• **name**: The new name for the movie (e.g., “It”).\n\n• **releaseYear**: The new release year of the movie (e.g., 2001).\n\n• **synopsis**: The new synopsis of the movie (e.g., “Some synopsis”).\n\n• **categories**: A list of new categories for the movie (e.g., \\[“Horror”\\]).\n\n**Authentication**: Requires an admin token to be provided in the header."
+							},
+							"response": []
+						},
+						{
+							"name": "deleteMovie2",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImlhdCI6MTcyNTUxMTIzNywiZXhwIjoxNzI1NTExODM3fQ.kwTgco4bw-sfk6Tgnc4DYUOW68N7d5xloJeMJEaK0U4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/movie/admin/delete?movieName=It 2",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"movie",
+										"admin",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "movieName",
+											"value": "It 2"
+										}
+									]
+								},
+								"description": "This endpoint allows an admin to delete a specific movie. The request must include a token for admin authentication.\n\n• **Request Parameter:** movieName. The name of the movie to be deleted (e.g., “John Wick Parabellum”).\n\n• **Authentication**: Requires an admin token for authorization."
+							},
+							"response": []
+						},
+						{
+							"name": "uploadImage",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImlhdCI6MTcyNTUxMTM3MywiZXhwIjoxNzI1NTExOTczfQ.5TGPUfcyi4FXj8nmMTWsgo2PlblSbSB3MRk9-2fz3Cc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/Users/george/Downloads/it-poster.jpg"
+										},
+										{
+											"key": "movieName",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/movie/admin/upload?movieName=Inception",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"movie",
+										"admin",
+										"upload"
+									],
+									"query": [
+										{
+											"key": "movieName",
+											"value": "Inception"
+										}
+									]
+								},
+								"description": "This endpoint allows an admin to upload an image for a specific movie. The request must include a token for admin authentication.\n\n• **Request Parameters:**\n\n• **movieName**: The name of the movie for which the image is being uploaded (e.g., “The Dark Knight”).\n\n• **file**: The image file to be uploaded. The image should be sent in the body as form-data.\n\n• **Authentication**: Requires an admin token for authorization."
+							},
+							"response": []
+						}
+					],
+					"description": "Folder that only users with the admin role will be able to execute"
+				},
+				{
+					"name": "search",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImlhdCI6MTcyNTUxMTM3MywiZXhwIjoxNzI1NTExOTczfQ.5TGPUfcyi4FXj8nmMTWsgo2PlblSbSB3MRk9-2fz3Cc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/movie/search?releaseYear=2010&categoryName=Science Fiction&keyword=Inception&sort=releaseYear&direction=DESC",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"movie",
+								"search"
+							],
+							"query": [
+								{
+									"key": "releaseYear",
+									"value": "2010"
+								},
+								{
+									"key": "categoryName",
+									"value": "Science Fiction"
+								},
+								{
+									"key": "keyword",
+									"value": "Inception"
+								},
+								{
+									"key": "sort",
+									"value": "releaseYear"
+								},
+								{
+									"key": "direction",
+									"value": "DESC"
+								}
+							]
+						},
+						"description": "This endpoint searches for movies based on the following parameters:\n\n• **Release Year**: Filters movies by the specified year (e.g., 2010).\n\n• **Category**: Filters movies by the specified category (e.g., “Science Fiction”).\n\n• **Keyword**: Searches within the movie name or synopsis (e.g., “Inception”).\n\n• **Sort By**: Orders the results by the specified field (e.g., releaseYear).\n\n• **Sort Direction**: Defines the order (e.g., DESC for descending).\n\nToken is required (user or admin)"
+					},
+					"response": []
+				}
+			],
+			"description": "Folder containing all the requests to manage movies"
+		},
+		{
+			"name": "rate",
+			"item": [
+				{
+					"name": "rateMovies1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImlhdCI6MTcyNTUxMTM3MywiZXhwIjoxNzI1NTExOTczfQ.5TGPUfcyi4FXj8nmMTWsgo2PlblSbSB3MRk9-2fz3Cc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rate\": 5,\n    \"movieName\": \"The Dark Knight\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/rate/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"rate",
+								"save"
+							]
+						},
+						"description": "This endpoint allows users to submit a rating for a movie\n\n• **Request Body**: Requires a JSON object containing:\n\n• **movieName**: The name of the movie to be rated (e.g., “The Dark Knight”).\n\n• **rate**: The rating to be given to the movie, which must be between 0 and 5 (e.g., 5).  \n  \nToken is required(admin or user)"
+					},
+					"response": []
+				},
+				{
+					"name": "getRates",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImlhdCI6MTcyNTUxMTM3MywiZXhwIjoxNzI1NTExOTczfQ.5TGPUfcyi4FXj8nmMTWsgo2PlblSbSB3MRk9-2fz3Cc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/rate/get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"rate",
+								"get"
+							]
+						},
+						"description": "This endpoint retrieves a list of movie ratings that belong to the user associated with the token.\n\n- **Response**: Returns a list of objects, each representing a movie and its rating that belong to the authenticated user."
+					},
+					"response": []
+				},
+				{
+					"name": "deleteRating",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImlhdCI6MTcyNTUxMTM3MywiZXhwIjoxNzI1NTExOTczfQ.5TGPUfcyi4FXj8nmMTWsgo2PlblSbSB3MRk9-2fz3Cc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/rate/delete?movieName=The Dark Knight",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"rate",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "movieName",
+									"value": "The Dark Knight"
+								}
+							]
+						},
+						"description": "This endpoint deletes a rating for a specific movie that belongs to the user associated with the token.\n\n• **Query Parameter**:\n\n• **movieName**: The name of the movie for which the rating should be deleted (e.g., “The Dark Knight”)."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
