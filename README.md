@@ -11,7 +11,7 @@ git clone git@github.com:Brianmax/ravnChallenge.git
 2. Change to the directory of the project:
 
 ```bash
-cd ravnChallenge
+cd tallerTecsupJava
 ```
 
 3. Run with docker-compose:
