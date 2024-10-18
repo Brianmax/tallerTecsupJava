@@ -1,4 +1,4 @@
-# App challenge
+# App
 
 ## How to run the app
 
